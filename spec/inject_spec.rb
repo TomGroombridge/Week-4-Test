@@ -12,6 +12,6 @@ describe "inject" do
 	end
 
 	it "will return British when applied to [Evgeny, is, British]" do
-		expect(['Evgeny', 'is', 'British'].inject {|memo, word| memo.length > word.length ? memo : word}).to eq "British"
+		expect(['Evgeny', 'is', 'British'].inject_2 {|memo, word| memo.length > word.length ? memo : word}).to eq "British"
 end 
 end
