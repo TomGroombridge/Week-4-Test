@@ -11,7 +11,13 @@ describe "inject" do
 		expect([1,2,3,4,5].inject_2 {|memo, value| memo * value}).to eq 120
 	end
 
+  # Touché
 	it "will return British when applied to [Evgeny, is, British]" do
 		expect(['Evgeny', 'is', 'British'].inject_2 {|memo, word| memo.length > word.length ? memo : word}).to eq "British"
-end 
+  end 
+
+  it "should take an optional argument" do
+    expect([1,2,3,4,5].inject_2(5) {|memo, value| memo + value}).to eq 20
+  end
+
 end
