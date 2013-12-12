@@ -1,9 +1,14 @@
 require 'rubygems'
 require 'twilio-ruby'
 
+# This code isn't bad at all. It's a shame it's not finished 
+# because you are definitely on your way.
+# It's the same with inject: you wrote decent code but
+# didn't finish it.
 
 class Takeaway
 
+    # Things like this should be a constant
 	def dishes
 	 	{:pizza => 4,
 		 :burger => 5,
@@ -22,12 +27,14 @@ class Takeaway
     end
 
     def check_price_of(dishes_and_quantities)
+        # Cool use of inject, well done ;)
     	dishes_and_quantities.inject(0) do |price, (dish,quantity)|
     		price += dishes[dish] * quantity
     	end
     end
 
     def twilio_account
+        # place account id and token into env variables instead
     	account_sid = 'AC4020c7172ab5705951dac48558ec411e'
 		auth_token = 'b8f8664b48f5e656f4be32b023159ecb'
 		@client = Twilio::REST::Client.new account_sid, auth_token
@@ -46,6 +53,7 @@ account_sid = 'AC4020c7172ab5705951dac48558ec411e'
 auth_token = 'b8f8664b48f5e656f4be32b023159ecb'
 @client = Twilio::REST::Client.new account_sid, auth_token
  
+# who is Jenny? :)
 message = @client.account.sms.messages.create(:body => "Jenny please?! I love you <3",
     :to => "+447540726507",     
     :from => "+441634621012")   
